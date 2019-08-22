@@ -26,6 +26,6 @@ background-image: url("./images/atom.jpg");
 /* Remove Bottom Margin from Jumbotron */
 .jumbotron{margin-bottom: 0;}
 
-footer{
-  background-color: lightblue;
+footer, nav{
+  background-color: #7A7485;
 }

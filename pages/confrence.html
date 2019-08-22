@@ -6,37 +6,44 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css"></link>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css"></link>
+    <link rel="stylesheet" href="../style.css">
     <script src="../js/fontawesome-all.js"></script>
     <title>NUMUG</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Forum</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="html/callforpapers.html">Call for Papers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Position Papers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Confrenece</a>
-          </li>
-        </ul>
-          <button class="btn btn-info my-2 my-sm-0" type="button">Login</button>
-      </div>
-    </nav>
+    <div>
+      <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarList">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarList">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href='../home.html'>Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" to='/Conference'>Confrence</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" to='./PositionPaper'>Position Papers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" to='/ForumFeed'>Forum</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" to='/Archive'>Presentation Archive</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
 
     <div>
       <div class="jumbotron">
@@ -74,7 +81,7 @@
       <div class='container'>
           <div class="row align-items-center justify-content-center">
             <div class="col-sm">
-              <img src={Mindmap} alt='hand holding the world'/>
+              <img src='../images/deadline.jpg' alt='hand holding the world' class="img-thumbnail"/>
             </div>
             <div class="col-sm">
                 <h2 class='text-center'>Call for Presenters, Abstracts and Papers</h2>
@@ -149,7 +156,7 @@
             $8.50 per person one way.</p>
           </div>
           <div class='col-sm'>
-            <img src= {Nevada} alt='Las Vegas sign'/>
+            <img src= '../images/sign.jpg' alt='Las Vegas sign' class="img-thumbnail"/>
           </div>
         </div>
       </div>
