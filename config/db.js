@@ -5,7 +5,8 @@ const localdb = config.get('mongoLocal');
 const connectDB = async () => {
   try {
     await mongoose.connect(localdb, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useCreateIndex: true
     });
 
     console.log('MongoDB Connected ...');

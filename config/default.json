@@ -1,3 +1,4 @@
 {
-  "mongoLocal": "mongodb://localhost/numugdev"
+  "mongoLocal": "mongodb://localhost/numugdev",
+  "jwtSecret": "numugpassword"
 }

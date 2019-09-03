@@ -8,16 +8,16 @@ const app = express();
 app.use(express.json({extended: false}));
 
 // Connect DAtabase
-// connectDB();
+connectDB();
 
 // DB Config local
-const db = 'mongodb://localhost/numugdev';
+// const db = 'mongodb://localhost/numugdev';
 
 // Connect to  MongoDB
-mongoose
-  .connect(db, {useNewUrlParser: true})
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+// mongoose
+//   .connect(db, {useNewUrlParser: true, useCreateIndex: true})
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log(err));
 
 app.get('/', (req, res) => res.send('API running'));
 
