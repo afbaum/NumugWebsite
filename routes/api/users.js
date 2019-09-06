@@ -46,5 +46,18 @@ router.post('/', [
   }
 });
 
+// @route   GET api/users
+// @desc    GET all users
+// @access  Public
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Sever Error');
+  }
+});
+
 
 module.exports = router;

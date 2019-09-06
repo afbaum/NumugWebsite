@@ -3,7 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../../middleware/auth');
 const {check, validationResult } = require('express-validator');
+
+
+// @route   GET api/auth
+// @desc    Get current users profile
+// @access  Private
+router.get('/', auth, (req, res) => res.send("Auth route"));
 
 // @route   POST api/auth/
 // @desc    Login User and get token
