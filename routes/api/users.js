@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const auth = require('../../middleware/auth');
 const {check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
@@ -48,8 +49,8 @@ router.post('/', [
 
 // @route   GET api/users
 // @desc    GET all users
-// @access  Public
-router.get('/', async (req, res) => {
+// @access  Private
+router.get('/', auth, async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -58,6 +59,68 @@ router.get('/', async (req, res) => {
     res.status(500).send('Sever Error');
   }
 });
+
+// @route   Post api/users/authorize/:id
+// @desc    authorize  registered users
+// @access  Private
+router.post('/authorize/:id', auth, async (req, res)=> {
+
+  const {confirm} = req.body;
+
+  const userconfirm ={};
+  userconfirm.user = req.params.id;
+  if(confirm) userconfirm.confirm = confirm;
+
+  try{
+    let user = await User.findOne({ _id: userconfirm.user });
+
+    if(user) {
+      user = await User.findOneAndUpdate(
+        { _id: userconfirm.user },
+        { $set: userconfirm},
+        { new: true}
+      );
+
+      return res.json(user);
+    };
+
+    await user.save();
+    res.json(profile);
+
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   DELETE api/users/authorize/:id
+// @desc    delete registered users
+// @access  Private
+router.delete('/authorize/:id', auth, async (req, res)=> {
+
+  const {confirm} = req.body;
+
+  const userconfirm ={};
+  userconfirm.user = req.params.id;
+  if(confirm) userconfirm.confirm = confirm;
+
+  try{
+    let user = await User.findOne({ _id: userconfirm.user });
+
+    if(user) {
+      user = await User.findOneAndRemove(
+        { _id: userconfirm.user },
+      );
+    };
+
+    res.json({ msg: 'User Deleted'});
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+
 
 
 module.exports = router;

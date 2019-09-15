@@ -47,7 +47,7 @@ router.post('/', [auth, [
 
   try{
     let profile = await Profile.findOne({ user: req.user.id });
-
+    res.json(profile)
     if(profile) {
       profile = await Profile.findOneAndUpdate(
         { user: req.user.id },
@@ -77,6 +77,23 @@ router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', 'name', User);
     res.json(profiles);
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Sever Error');
+  }
+});
+
+// @route   DELETE api/profile
+// @desc    DELETE user profile and posts
+// @access  Public
+router.delete('/', auth, async (req, res) => {
+  try {
+    // remove profile
+    await Profile.findOneAndRemove({ users: req.user.id });
+    // remove user
+    await User.findOneAndRemove({ _id: req.user.id });
+
+    res.json({ msg: 'User Deleted'});
   } catch(err) {
     console.error(err.message);
     res.status(500).send('Sever Error');
