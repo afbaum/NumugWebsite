@@ -14,9 +14,9 @@ const Container = () => {
   return (
 
     <div>
-      <div class="container-fluid padding py-4">
+      <div className="container-fluid padding py-4">
         <div className='row'>
-          <div className='col-sm'>
+          <div className='col-sm d-flex align-items-stretch'>
             <div className='card'>
               <img style = {style} src={personImg}  alt='person holding large lightbulb'></img>
               <div className='card-title text-center'>
@@ -29,7 +29,7 @@ const Container = () => {
               </div>
             </div>
           </div>
-          <div className='col-sm'>
+          <div className='col-sm d-flex align-items-stretch'>
             <div className='card'>
               <img style = {style} src={deadlineImg} alt='person holding large lightbulb'></img>
               <div className='card-title text-center'>
@@ -38,11 +38,11 @@ const Container = () => {
               <div className='card-body'>
                 <h4 className='text-center'>For submition deadlines click below</h4>
                 <br/>
-                <Link to='/' className='btn btn-primary btn-block'>Deadlines</Link>
+                <Link to='/' className='btn btn-primary btn-block text-center'>Deadlines</Link>
               </div>
             </div>
           </div>
-          <div className='col-sm'>
+          <div className='col-sm d-flex align-items-stretch'>
             <div className='card'>
               <img style = {style} src={anemometerImg} alt='person holding large lightbulb'></img>
               <div className='card-title text-center'>
